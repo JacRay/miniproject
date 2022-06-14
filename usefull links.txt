@@ -1,0 +1,6 @@
+https://pyimagesearch.com/2014/08/04/opencv-python-color-detection/
+
+green = >50miles
+orange= <50 >25miles
+red = <25miles
+darkred = nearly 0
