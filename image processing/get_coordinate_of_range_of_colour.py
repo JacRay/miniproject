@@ -1,7 +1,7 @@
 # import the necessary packages
 import numpy as np
 import cv2
-img = "google.jpg"
+img = "google1.jpg"
 image = cv2.imread(img)
 
 # define the list of boundaries
