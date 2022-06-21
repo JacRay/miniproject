@@ -5,7 +5,7 @@ import urllib.parse as ul
 
 # It's possible to make requests without the api key, but the number of requests is very limited
 
-url = "https://www.google.com/maps/@9.995041,76.2920896,20.52z/data=!5m2!1e1!1e4"
+url = "https://www.google.com/maps/@9.9950524,76.2921638,21z/data=!5m1!1e1"
 urle = ul.quote_plus(url)
 image_path = "google.jpg"
 
