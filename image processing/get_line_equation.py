@@ -24,14 +24,14 @@ def estimate_coef(x, y):
 # 2. find where the pixel belonging to the line are located
 # 3. perform linear regression to get coeff
 
-image = []      # contain the image read
+images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"]      # contain the image read
 
 # for all images to analyze
-for x in range(len(dut.images)):
-  print("\n\nimage ",x, dut.images[x])
+for x in range(len(images)):
+  print("\n\nimage ",x, images[x])
 
   # read image (convert to greyscale)
-  image  = cv2.imread(dut.images[x], mode="L")
+  image  = cv2.imread(images[x])
 
   height = image.shape[0] - 1
 

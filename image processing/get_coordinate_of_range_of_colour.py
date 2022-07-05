@@ -5,10 +5,10 @@ img = "google1.jpg"
 image = cv2.imread(img)
 
 # define the list of boundaries
-#dark red
-#red
-#orange
-#green
+# dark red
+# red
+# orange
+# green
 boundaries = [
 	([20, 20, 80], [60, 60, 120]),
 	([60, 80, 180], [100, 120, 255]),
