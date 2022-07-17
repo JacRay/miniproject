@@ -17,7 +17,7 @@ boundaries = [
 ]
 
 # loop over the boundaries
-x = 1
+# x = 1
 for (lower, upper) in boundaries:
 	# create NumPy arrays from the boundaries
 	lower = np.array(lower, dtype = "uint8")
@@ -27,8 +27,8 @@ for (lower, upper) in boundaries:
 	mask = cv2.inRange(image, lower, upper)
 	output = cv2.bitwise_and(image, image, mask = mask)
 	# show the images
-	cv2.imwrite(str(x)+".jpg", output)
-	x += 1
+	# cv2.imwrite(str(x)+".jpg", output)
+	# x += 1
 	print(np.transpose(mask.nonzero()))
 	cv2.imshow("images", np.hstack([image, output]))
 	cv2.waitKey(0)

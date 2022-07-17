@@ -27,6 +27,7 @@ coordinates = [
 ]
 road = ["S", "E", "N", "W"]
 color =["Dark Red", "Red", "Orange", "Green"]
+value = [3, 2, 1, 0]
 # loop over the boundaries
 x = 1
 i = 0
@@ -47,7 +48,7 @@ for (lower, upper) in boundaries:
     for (l, u) in coordinates:
         for n in temp:
             if n[0] >= l[0] and n[1] >= l[1] and n[0] <= u[0] and n[1] <= u[1]:
-                result.append((road[j], color[i]))
+                result.append((road[j], color[i], value[i]))
         j+= 1
     i += 1
 coun = []
@@ -55,6 +56,19 @@ for x in range(4):
     y = mode(result)
     coun.append(y)
     result = list(filter(lambda a: a != y, result))
-print(coun)
+out = []
+for x in road:
+    for y in coun:
+        if x == y[0]:
+            out.append(y)
+t = []
+l = 4
+for x in range(4):
+    t.append((out[x][2]*3)+out[(x+2)%l][2]+out[(x+3)%l][2])
+s = sum(t)
+for x in range(4):
+    t[x] = int((150/s)*t[x])
+    print(road[x], "--->", t[x], "sec")
+
 
 
