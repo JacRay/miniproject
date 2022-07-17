@@ -14,22 +14,27 @@ image = cv2.imread(img)
 # orange
 # green
 boundaries = [
-    ([20, 20, 80], [60, 60, 120]),
-    ([60, 80, 180], [100, 120, 255]),
-    ([120, 160, 200], [150, 200, 255]),
-    ([130, 180, 110], [160, 210, 140])
+    ([20, 20, 100], [60, 60, 140]),
+    ([50, 60, 215], [90, 100, 255]),
+    ([60, 140, 215], [100, 180, 255]),
+    ([90, 160, 90], [140, 255, 140])
 ]
+# coordinates = [
+#     ([235, 225], [245, 235]),
+#     ([83, 396], [93, 406]),
+#     ([65, 224], [75, 234]),
+#     ([258, 115], [268, 125])
+# ]
 coordinates = [
-    ([235, 225], [245, 235]),
-    ([83, 396], [93, 406]),
-    ([65, 224], [75, 234]),
-    ([258, 115], [268, 125])
+    ([775, 921], [780, 926]),
+    ([80, 1651], [85, 1656]),
+    ([236, 891], [241, 896]),
+    ([683, 703], [688, 708])
 ]
 road = ["S", "E", "N", "W"]
 color =["Dark Red", "Red", "Orange", "Green"]
 value = [3, 2, 1, 0]
 # loop over the boundaries
-x = 1
 i = 0
 result = []
 for (lower, upper) in boundaries:
@@ -40,9 +45,6 @@ for (lower, upper) in boundaries:
     # the mask
     mask = cv2.inRange(image, lower, upper)
     output = cv2.bitwise_and(image, image, mask=mask)
-    # show the images
-    cv2.imwrite(str(x) + ".jpg", output)
-    x += 1
     temp = np.transpose(mask.nonzero())
     j = 0 # j is road and i is colour
     for (l, u) in coordinates:

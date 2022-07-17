@@ -1,7 +1,7 @@
 # import the necessary packages
 import numpy as np
 import cv2
-img = "google1.jpg"
+img = "google.jpg"
 image = cv2.imread(img)
 
 # define the list of boundaries
@@ -10,10 +10,10 @@ image = cv2.imread(img)
 # orange
 # green
 boundaries = [
-	([20, 20, 80], [60, 60, 120]),
-	([60, 80, 180], [100, 120, 255]),
-	([120, 160, 200], [150, 200, 255]),
-	([130, 180, 110], [160, 210, 140])
+	# ([20, 20, 100], [60, 60, 140]),
+	# ([50, 60, 215], [90, 100, 255]),
+	# ([60, 140, 215], [100, 180, 255]),
+	([90, 160, 90], [140, 255, 140])
 ]
 
 # loop over the boundaries
@@ -29,6 +29,12 @@ for (lower, upper) in boundaries:
 	# show the images
 	# cv2.imwrite(str(x)+".jpg", output)
 	# x += 1
-	print(np.transpose(mask.nonzero()))
-	cv2.imshow("images", np.hstack([image, output]))
+	a = np.transpose(mask.nonzero())
+	for x in a:
+		print(x)
+	print("End")
+	cv2.namedWindow('image', cv2.WINDOW_NORMAL)
+	cv2.resizeWindow('image', 800, 400)
+	# cv2.imshow("image", output)
+	cv2.imshow("image", np.hstack([image, output]))
 	cv2.waitKey(0)
