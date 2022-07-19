@@ -2,7 +2,6 @@ from html2image import Html2Image
 import time
 import numpy as np
 import cv2
-import statistics
 from statistics import mode
 
 
@@ -61,13 +60,13 @@ def get_time():
                 out.append(y)
     t = []
     l = 4
-    for x in range(4):
+    for x in range(l):
         t.append((out[x][2] * 3) + out[(x + 2) % l][2] + out[(x + 3) % l][2])
     s = sum(t)
-    for x in range(4):
+    for x in range(l):
         t[x] = int((150 / s) * t[x])
         print(road[x], "--->", t[x], "sec")
-
+    print(t)
 
 hti = Html2Image()
 while True:
