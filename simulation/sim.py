@@ -1,10 +1,3 @@
-t = [35, 55, 40, 20]
-dis = []
-s = 0
-for x in t:
-    s += int((x/150)*100)
-    dis.append(s)
-defaultGreen = t
 import random
 import time
 import threading
@@ -13,15 +6,16 @@ import sys
 
 # Default values of signal timers
 #w s e n
-t = [20, 35, 55, 40]
+# t = [20, 35, 55, 40]
+t = [7, 22, 30, 15]
 dis = []
 s = 0
 for x in t:
-    s += int((x/150)*100)
+    s += int((x/75)*200)
     dis.append(s)
 defaultGreen = t
 defaultRed = 150
-defaultYellow = 5
+defaultYellow = 2
 
 signals = []
 noOfSignals = 4
@@ -210,7 +204,7 @@ def generateVehicles():
     while (True):
         vehicle_type = random.randint(0, 3)
         lane_number = random.randint(1, 2)
-        temp = random.randint(0, 99)
+        temp = random.randint(0, 199)
         direction_number = 0
         dist = dis
         if (temp < dist[0]):

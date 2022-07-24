@@ -4,7 +4,6 @@ import numpy as np
 import cv2
 from statistics import mode
 
-
 def get_time():
     img = "google.jpg"
     image = cv2.imread(img)
@@ -26,6 +25,7 @@ def get_time():
         ([236, 891], [241, 896]),
         ([683, 703], [688, 708])
     ]
+    res = ["W", "S", "E", "N"]
     road = ["S", "E", "N", "W"]
     color = ["Dark Red", "Red", "Orange", "Green"]
     value = [3, 2, 1, 0]
@@ -63,13 +63,20 @@ def get_time():
     for x in range(l):
         t.append((out[x][2] * 3) + out[(x + 2) % l][2] + out[(x + 3) % l][2])
     s = sum(t)
-    for x in range(l):
-        t[x] = int((150 / s) * t[x])
-        print(road[x], "--->", t[x], "sec")
-    print(t)
+    if s!= 0:
+        for x in range(l):
+            t[x] = int((40/ s) * t[x])
+            print(road[x], "--->", t[x], "sec")
+    else:
+        for x in range(l):
+            t[x] = int(40/l)
+            print(road[x], "--->", t[x], "sec")
+    return t
 
 hti = Html2Image()
 while True:
     hti.screenshot(url="https://www.google.com/maps/@9.9950524,76.2921638,21z/data=!5m1!1e1", save_as="google.jpg")
-    get_time()
+    t = get_time()
+    t = t[-1:] +t[:-1]
+    print(t)
     time.sleep(120)
