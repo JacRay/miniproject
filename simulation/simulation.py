@@ -10,7 +10,9 @@ from statistics import mode
 
 # Default values of signal timers
 #w s e n
+sec = 40
 t = [10, 10, 10, 10]
+defaultGreen = t
 def update():
     global defaultGreen
     hti = Html2Image()
@@ -75,17 +77,18 @@ def update():
     s = sum(t)
     if s != 0:
         for x in range(l):
-            t[x] = int((40 / s) * t[x])
+            t[x] = int((sec / s) * t[x])
             print(res[x], "--->", t[x], "sec")
     else:
         for x in range(l):
-            t[x] = int(40 / l)
+            t[x] = int(sec / l)
             print(res[x], "--->", t[x], "sec")
+    defaultGreen = t
 update()
 dis = []
 s = 0
 for x in t:
-    s += int((x/40)*100)
+    s += int((x/sec)*100)
     dis.append(s)
 print(dis)
 defaultGreen = t
@@ -482,7 +485,7 @@ def generateVehicles():
         dis = []
         s = 0
         for x in defaultGreen:
-            s += int((x / 40) * 100)
+            s += int((x / sec) * 100)
             dis.append(s)
         dist = dis
         if(temp<dist[0]):
